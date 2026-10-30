@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enterprise Leave Management</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<header class="app-header">
+    <div class="header-container">
+        <div class="brand">
+            <h1>Leave Management</h1>
+            <span class="header-subtitle">Omibits (Pvt) Ltd. Workspace</span>
+        </div>
+        <!-- Tab Navigation added to the header -->
+        <nav class="tab-nav">
+            <button class="tab-btn active" onclick="switchTab('employeeTab', this)">Employee</button>
+            <button class="tab-btn" onclick="switchTab('leaveTab', this)">Submit Leave</button>
+            <button class="tab-btn" onclick="switchTab('adminTab', this)">Admin Dashboard</button>
+        </nav>
+    </div>
+</header>
+
+<div class="container">
+
+    <!-- ================= EMPLOYEE TAB ================= -->
+    <div id="employeeTab" class="tab-content active">
+        <section class="card">
+            <div class="card-header gradient-employee">
+                <h2>Employee Directory</h2>
+                <p>Manage and view all corporate employees.</p>
+            </div>
+            <div class="card-body">
+                <form id="employeeForm" class="modern-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="empName">Full Name *</label>
+                            <input type="text" id="empName" placeholder="e.g., Ahamed Muiz" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="empEmail">Corporate Email *</label>
+                            <input type="email" id="empEmail" placeholder="example@gmail.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="empDept">Department *</label>
+                            <input type="text" id="empDept" placeholder="e.g., Engineering" required>
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn-primary">Register Employee</button>
+                        <button type="reset" class="btn-secondary">Clear</button>
+                    </div>
+                </form>
+                <div id="employeeMessage" class="message"></div>
+
+                <div class="table-responsive mt-2">
+                    <table id="employeeTable" class="modern-table">
+                        <thead>
+                        <tr>
+                            <th>EMP ID</th>
+                            <th>Name</th>
+                            <th>Email Address</th>
+                            <th>Department</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- ================= LEAVE REQUEST TAB ================= -->
+    <div id="leaveTab" class="tab-content">
+        <section class="card">
+            <div class="card-header gradient-leave">
+                <h2>Submit Leave Request</h2>
+                <p>Apply for annual, casual, or medical leave.</p>
+            </div>
+            <div class="card-body">
+                <form id="leaveForm" class="modern-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="leaveEmployeeId">Select Employee *</label>
+                            <select id="leaveEmployeeId" required>
+                                <option value="">-- Choose Employee --</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="leaveType">Leave Type *</label>
+                            <select id="leaveType" required>
+                                <option value="ANNUAL">Annual Leave</option>
+                                <option value="CASUAL">Casual Leave</option>
+                                <option value="MEDICAL">Medical Leave</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="leaveStart">Start Date *</label>
+                            <input type="date" id="leaveStart" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="leaveEnd">End Date *</label>
+                            <input type="date" id="leaveEnd" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="leaveReason">Reason for Leave *</label>
+                        <input type="text" id="leaveReason" placeholder="Briefly describe the reason for your leave" required>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn-primary">Submit Request</button>
+                        <button type="reset" class="btn-secondary">Clear</button>
+                    </div>
+                </form>
+                <div id="leaveMessage" class="message"></div>
+            </div>
+        </section>
+    </div>
+
+    <!-- ================= ADMIN TAB ================= -->
+    <div id="adminTab" class="tab-content">
+        <section class="card">
+            <div class="card-header gradient-admin">
+                <h2>Administrator Dashboard</h2>
+                <p>Review, approve, or reject employee leave requests.</p>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table id="leaveTable" class="modern-table">
+                        <thead>
+                        <tr>
+                            <th>Req ID</th>
+                            <th>Employee</th>
+                            <th>Type</th>
+                            <th>Duration</th>
+                            <th>Reason</th>
+                            <th>Status</th>
+                            <th>Admin Actions</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+    </div>
+
+</div>
+
+<script src="/js/main.js"></script>
+</body>
+</html>
