@@ -24,6 +24,11 @@ public class LeaveRequestService {
 
     public LeaveRequest submitLeaveRequest(LeaveRequestDto dto) {
 
+        if (dto.getStartDate().isBefore(java.time.LocalDate.now())) {
+            throw new IllegalArgumentException("Start date cannot be in the past.");
+        }
+
+
         if (dto.getEndDate().isBefore(dto.getStartDate())) {
             throw new IllegalArgumentException("End date cannot be before start date.");
         }
